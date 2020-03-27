@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0"
+		 DefaultTargets="Build"
+		 xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props"
+			Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+	<PropertyGroup>
+		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+		<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+		<ProjectGuid>{9BE0E23A-E003-4B51-B799-E5D589FBE97B}</ProjectGuid>
+		<OutputType>Library</OutputType>
+		<AppDesignerFolder>Properties</AppDesignerFolder>
+		<RootNamespace>Sc.Tests.Shared</RootNamespace>
+		<AssemblyName>Sc.Tests.Shared</AssemblyName>
+		<TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+		<FileAlignment>512</FileAlignment>
+		<ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+		<VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">15.0</VisualStudioVersion>
+		<VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+		<ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+		<IsCodedUITest>False</IsCodedUITest>
+		<TestProjectType>UnitTest</TestProjectType>
+		<NuGetPackageImportStamp>
+		</NuGetPackageImportStamp>
+	</PropertyGroup>
+	<Import Project="..\..\Build\NoPackAssemblyInfoProject.targets" />
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+		<DebugSymbols>true</DebugSymbols>
+		<DebugType>full</DebugType>
+		<Optimize>false</Optimize>
+		<OutputPath>bin\Debug\</OutputPath>
+		<DefineConstants>DEBUG;TRACE</DefineConstants>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		<DebugType>pdbonly</DebugType>
+		<Optimize>true</Optimize>
+		<OutputPath>bin\Release\</OutputPath>
+		<DefineConstants>TRACE</DefineConstants>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+	</PropertyGroup>
+	<ItemGroup>
+		<Reference Include="System" />
+		<Reference Include="System.Core" />
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Include="..\..\Build\CommonAssemblyInfo-NoWpf.cs">
+			<Link>Properties\CommonAssemblyInfo-NoWpf.cs</Link>
+		</Compile>
+		<Compile Include="AssemblySetup.cs" />
+		<Compile Include="TestHelper.cs" />
+		<Compile Include="Properties\AssemblyInfo.cs" />
+		<Compile Include="Unmanaged.cs" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="MSTest.TestAdapter">
+			<Version>1.4.0</Version>
+		</PackageReference>
+		<PackageReference Include="MSTest.TestFramework">
+			<Version>1.4.0</Version>
+		</PackageReference>
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\..\Source\Abstractions\Sc.Abstractions\Sc.Abstractions.csproj">
+			<Project>{60227372-7356-4F22-AFC1-60ABCBF05539}</Project>
+			<Name>Sc.Abstractions</Name>
+		</ProjectReference>
+		<ProjectReference Include="..\..\Source\Diagnostics\Sc.Diagnostics\Sc.Diagnostics.csproj">
+			<Project>{1e23a902-d2a0-47d8-ae7e-10d510ea94cd}</Project>
+			<Name>Sc.Diagnostics</Name>
+		</ProjectReference>
+		<ProjectReference Include="..\..\Source\Util\Sc.Util\Sc.Util.csproj">
+			<Project>{fb3e5867-e39e-4dd2-9ff1-798c8515548a}</Project>
+			<Name>Sc.Util</Name>
+		</ProjectReference>
+	</ItemGroup>
+	<Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets"
+			Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+	<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

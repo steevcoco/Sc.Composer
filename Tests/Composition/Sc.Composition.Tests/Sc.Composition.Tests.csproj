@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0"
+		 DefaultTargets="Build"
+		 xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props"
+			Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+	<PropertyGroup>
+		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+		<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+		<ProjectGuid>{5156064A-77B1-4752-BFBC-0BA28D0918AB}</ProjectGuid>
+		<OutputType>Library</OutputType>
+		<AppDesignerFolder>Properties</AppDesignerFolder>
+		<RootNamespace>Sc.Composition.Tests</RootNamespace>
+		<AssemblyName>Sc.Composition.Tests</AssemblyName>
+		<TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+		<FileAlignment>512</FileAlignment>
+		<ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+		<VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">15.0</VisualStudioVersion>
+		<VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+		<ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+		<IsCodedUITest>False</IsCodedUITest>
+		<TestProjectType>UnitTest</TestProjectType>
+		<NuGetPackageImportStamp>
+		</NuGetPackageImportStamp>
+	</PropertyGroup>
+	<Import Project="..\..\..\Build\NoPackAssemblyInfoProject.targets" />
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+		<DebugSymbols>true</DebugSymbols>
+		<DebugType>full</DebugType>
+		<Optimize>false</Optimize>
+		<OutputPath>bin\Debug\</OutputPath>
+		<DefineConstants>DEBUG;TRACE</DefineConstants>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		<DebugType>pdbonly</DebugType>
+		<Optimize>true</Optimize>
+		<OutputPath>bin\Release\</OutputPath>
+		<DefineConstants>TRACE</DefineConstants>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+	</PropertyGroup>
+	<ItemGroup>
+		<Reference Include="System" />
+		<Reference Include="System.Core" />
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Include="..\..\..\Build\CommonAssemblyInfo-NoWpf.cs">
+			<Link>Properties\CommonAssemblyInfo-NoWpf.cs</Link>
+		</Compile>
+		<Compile Include="Helper.cs" />
+		<Compile Include="MefComposerTests.cs" />
+		<Compile Include="MefSingletonComposerTests.cs" />
+		<Compile Include="Properties\AssemblyInfo.cs" />
+		<Compile Include="Types\AssertBase.cs" />
+		<Compile Include="Types\BabyDefault.cs" />
+		<Compile Include="Types\BabyFails.cs" />
+		<Compile Include="Types\ChildDefault.cs" />
+		<Compile Include="Types\ChildMultiConstructor.cs" />
+		<Compile Include="Types\IAssert.cs" />
+		<Compile Include="Types\IBaby.cs" />
+		<Compile Include="Types\IChild.cs" />
+		<Compile Include="Types\IParent.cs" />
+		<Compile Include="Types\ParentDefault.cs" />
+		<Compile Include="Types\ParentMultiConstructor.cs" />
+		<Compile Include="Types\ParentOneConstructor.cs" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="MSTest.TestAdapter">
+			<Version>1.4.0</Version>
+		</PackageReference>
+		<PackageReference Include="MSTest.TestFramework">
+			<Version>1.4.0</Version>
+		</PackageReference>
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\Source\Abstractions\Sc.Abstractions\Sc.Abstractions.csproj">
+			<Project>{60227372-7356-4f22-afc1-60abcbf05539}</Project>
+			<Name>Sc.Abstractions</Name>
+		</ProjectReference>
+		<ProjectReference Include="..\..\..\Source\Composition\Sc.Composer.Mef\Sc.Composer.Mef.csproj">
+			<Project>{e8c292f6-a6ca-44d4-b246-1ef9bee5b073}</Project>
+			<Name>Sc.Composer.Mef</Name>
+		</ProjectReference>
+		<ProjectReference Include="..\..\..\Source\Composition\Sc.Composer\Sc.Composer.csproj">
+			<Project>{fb54dd29-8faf-437b-8537-768eeea490e5}</Project>
+			<Name>Sc.Composer</Name>
+		</ProjectReference>
+		<ProjectReference Include="..\..\..\Source\IO\Sc.IO\Sc.IO.csproj">
+			<Project>{72280f15-b604-4e40-a775-bc08b467cf70}</Project>
+			<Name>Sc.IO</Name>
+		</ProjectReference>
+		<ProjectReference Include="..\..\..\Source\Util\Sc.Util.Collections\Sc.Util.Collections.csproj">
+			<Project>{f5deacbb-858b-46f4-aa85-ee81328423a9}</Project>
+			<Name>Sc.Util.Collections</Name>
+		</ProjectReference>
+		<ProjectReference Include="..\..\..\Source\Util\Sc.Util\Sc.Util.csproj">
+			<Project>{fb3e5867-e39e-4dd2-9ff1-798c8515548a}</Project>
+			<Name>Sc.Util</Name>
+		</ProjectReference>
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="System.Composition">
+			<Version>1.2.0</Version>
+		</PackageReference>
+	</ItemGroup>
+	<Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets"
+			Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+	<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
