@@ -1,0 +1,10 @@
+﻿<Project>
+	<PropertyGroup>
+		<Authors>Steven Coco</Authors>
+		<Company>StevenCoco.com</Company>
+		<Copyright>Copyright © 2015-2018 Steven Coco, USA</Copyright>
+		<Trademark>Trademark ™ 2015-2018 Steven Coco, USA</Trademark>
+		<Product>DotNet core library from Steven Coco.</Product>
+		<Description>A core component of the DotNet core library from Steven Coco.</Description>
+	</PropertyGroup>
+</Project>

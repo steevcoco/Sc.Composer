@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net45</TargetFramework>
+	</PropertyGroup>
+	<Import Project="..\..\..\Build\PackableSdkProject.targets" />
+	
+	<ItemGroup>
+	  <ProjectReference Include="..\..\Abstractions\Sc.Abstractions\Sc.Abstractions.csproj" />
+	  <ProjectReference Include="..\..\Diagnostics\Sc.Diagnostics\Sc.Diagnostics.csproj" />
+	  <ProjectReference Include="..\..\Util\Sc.Util\Sc.Util.csproj" />
+	</ItemGroup>
+
+</Project>

@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net45</TargetFramework>
+	</PropertyGroup>
+	<Import Project="..\..\..\Build\PackableSdkProject.targets" />
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\Abstractions\Sc.Abstractions\Sc.Abstractions.csproj" />
+		<ProjectReference Include="..\Sc.Util.Collections\Sc.Util.Collections.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Reference Include="System.ComponentModel.DataAnnotations" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Resources\ScUtilResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>ScUtilResources.resx</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Update="Resources\ScUtilResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>ScUtilResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	</ItemGroup>
+</Project>

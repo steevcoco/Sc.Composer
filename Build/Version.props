@@ -1,0 +1,13 @@
+<Project>
+  <!--
+		Version
+	-->
+  <PropertyGroup>
+    <VersionMajor>2</VersionMajor>
+    <VersionMinor>0</VersionMinor>
+    <VersionBuild>3</VersionBuild>
+    <VersionRevision>4</VersionRevision>
+    <BuildVersion>$(VersionMajor).$(VersionMinor).$(VersionBuild).$(VersionRevision)</BuildVersion>
+    <Version>$(BuildVersion)</Version>
+  </PropertyGroup>
+</Project>

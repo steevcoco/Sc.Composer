@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net45</TargetFramework>
+	</PropertyGroup>
+	<Import Project="..\..\..\Build\PackableSdkProject.targets" />
+
+	<ItemGroup>
+		<PackageReference Include="System.Composition" Version="1.2.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\Collections\Sc.Collections\Sc.Collections.csproj" />
+	  <ProjectReference Include="..\..\Diagnostics\Sc.Diagnostics\Sc.Diagnostics.csproj" />
+	  <ProjectReference Include="..\..\IO\Sc.IO\Sc.IO.csproj" />
+	  <ProjectReference Include="..\Sc.Composer\Sc.Composer.csproj" />
+	</ItemGroup>
+</Project>

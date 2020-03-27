@@ -1,0 +1,5 @@
+<Project>
+	<Import Project="CommonConfiguration.props" />
+	<Import Project="CommonMetaData.props" />
+	<Import Project="Version.props"/>
+</Project>

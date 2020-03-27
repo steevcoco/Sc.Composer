@@ -1,0 +1,6 @@
+<Project>
+	<Import Project="CommonConfiguration.props" />
+	<Import Project="CommonMetaData.props" />
+	<Import Project="Version.props"/>
+	<Import Project="PackableProjectBase.targets"/>
+</Project>

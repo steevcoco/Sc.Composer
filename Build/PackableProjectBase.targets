@@ -1,0 +1,17 @@
+<Project>
+	<PropertyGroup>
+		<GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">false</GeneratePackageOnBuild>
+		<GeneratePackageOnBuild Condition="'$(Configuration)'=='Debug'">false</GeneratePackageOnBuild>
+	</PropertyGroup>
+	<Target Name="NuGetAdd"
+			AfterTargets="Pack">
+		<PropertyGroup>
+			<GenerateDocumentationFile Condition="'$(Configuration)'=='Release'">true</GenerateDocumentationFile>
+			<GenerateDocumentationFile Condition="'$(Configuration)'=='Debug'">false</GenerateDocumentationFile>
+			<AllowedOutputExtensionsInPackageBuildOutputFolder>.dll;.pdb;.xml</AllowedOutputExtensionsInPackageBuildOutputFolder>
+		</PropertyGroup>
+		<Exec Command="$(NuGetExePath) delete $(AssemblyName) $(Version) -NonInteractive -Source $(LocalNuGetSource)"
+			  IgnoreExitCode="true" />
+		<Exec Command="$(NuGetExePath) add $(ProjectDir)$(BaseOutputPath)$(Configuration)\$(AssemblyName).$(Version).nupkg -Source $(LocalNuGetSource)" />
+	</Target>
+</Project>

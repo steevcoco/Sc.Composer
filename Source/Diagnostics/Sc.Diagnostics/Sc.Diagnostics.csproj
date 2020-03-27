@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net45</TargetFramework>
+	</PropertyGroup>
+	<Import Project="..\..\..\Build\PackableSdkProject.targets" />
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\Abstractions\Sc.Abstractions\Sc.Abstractions.csproj" />
+		<ProjectReference Include="..\..\Util\Sc.Util.Collections\Sc.Util.Collections.csproj" />
+		<ProjectReference Include="..\..\Util\Sc.Util\Sc.Util.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Reference Include="Microsoft.VisualBasic" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Properties\Resources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>Resources.resx</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Update="Properties\Resources.resx">
+	    <Generator>ResXFileCodeGenerator</Generator>
+	    <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	</ItemGroup>
+</Project>

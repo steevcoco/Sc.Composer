@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+	Will specify options for Sc.Diagnostics.TraceFactory.LogFileFactory
+	if placed next to the file location where the log file will be created.
+-->
+<LogFileFactoryConfig>
+	<!--
+		A Sc.Diagnostics.TraceFactory.LogFileFactorySelection enum value.
+		Defaults to All.
+		This property chooses the behavior for each TraceSource when all
+		Selector delegates return Default; or if no delegates are added.
+		Values are: Default, None, SwitchAndFilterLevels, LogFileOutput, All.
+	-->
+	<DefaultTraceSourceSelection>All</DefaultTraceSourceSelection>
+
+	<!--
+		A System.Diagnostics.SourceLevels value.
+		Defaults to Warning.
+		This optional level will be set on each TraceSource
+		selected for Swith configuration.
+		Values are: All, Off, Critical, Error, Warning, Information, Verbose, ActivityTracing.
+	-->
+	<SelectedSwitchLevel>Warning</SelectedSwitchLevel>
+
+	<!--
+		A System.Diagnostics.SourceLevels value.
+		Defaults to Information.
+		This level will be set on the file output TraceListener Filter.
+		Values are: All, Off, Critical, Error, Warning, Information, Verbose, ActivityTracing.
+	-->
+	<LogFileFilterLevel>Information</LogFileFilterLevel>
+
+	<!--
+		A Boolean value.
+		Defaults to True.
+		This class will add a file system watcher for THIS
+		config file; and reset the factory with any config file changes.
+	-->
+	<WatchConfigFileChanges>True</WatchConfigFileChanges>
+
+	<!--
+		A Boolean value.
+		Defaults to True.
+		Provided to manually enable or disable the log file.
+	-->
+	<ToggleLogFile>True</ToggleLogFile>
+</LogFileFactoryConfig>
